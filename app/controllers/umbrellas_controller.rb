@@ -27,13 +27,12 @@ class UmbrellasController < ApplicationController
   end
 
   def show
-    @umbrella = Umbrella.find(params[:id])
-    @user = User.find_by(id: @umbrella.user_id)
-  end
-
-  # def chat
     # @umbrella = Umbrella.find(params[:id])
-  # end
+    @user = User.find_by(id: @umbrella.user_id)
+    @umbrella = Umbrella.includes(:messages).find_by(id: params[:id])
+    @message = Message.new
+    # binding.pry
+  end
 
   def edit
     if current_user.id != @umbrella.user_id
