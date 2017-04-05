@@ -1,0 +1,22 @@
+<div class='page-header'>
+  <h1><%= @umbrella.time.strftime("%B %d, %Y") %>
+  <%= image_tag('clock.png', width: '60px') %><%= @umbrella.time.strftime("%H:%M") %></h1>
+</div>
+
+<div class='row'>
+  <div class='col-lg-6'>
+    <h4> From </h4>
+    <p><%= @umbrella.address_1 %> <%= @umbrella.zipcode %></p>
+    <h4> To </h4>
+    <p><%= @umbrella.address_2 %></p>
+  </div>
+  <br>
+  <div class='col-lg-6'>
+  <%= render 'google_map', umbrella: @umbrella %>
+  </div>
+</div>
+
+<div class='well'>
+  <%= link_to 'Edit', edit_umbrella_path(@umbrella), class: 'btn btn-primary' %> |
+  <%= link_to 'Back', umbrellas_path %>
+</div>

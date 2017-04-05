@@ -1,0 +1,30 @@
+<div class='page-header'>
+  <h1>My Umbrellas</h1>
+</div>
+
+<table class='table table-striped table-hover'>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Address</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @umbrellas.each do |umbrella| %>
+      <tr>
+        <td><%= umbrella.time %></td>
+        <td><%= link_to umbrella.address_1, umbrella %></td>
+        <td><%= umbrella.address_2 %></td>
+        <td><%= link_to 'Edit', edit_umbrella_path(umbrella) %> |
+            <%= link_to 'Destroy', umbrella, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Umbrella', new_umbrella_path, class: 'btn btn-primary' %>

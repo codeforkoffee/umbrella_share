@@ -1,0 +1,49 @@
+<div class='well bs-component'>
+  <%= form_for(@umbrella, html: { class: 'form-horizontal' }) do |f| %>
+    <% if @umbrella.errors.any? %>
+    <fieldset>
+        <div id="error_explanation">
+          <h2><%= pluralize(@umbrella.errors.count, "error") %> prohibited this umbrella from being saved:</h2>
+
+          <ul>
+          <% @umbrella.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class='form-group'>
+        <%= f.label :From, class: 'col-lg-2' %>
+        <div class='col-lg-10'>
+        <%= f.text_field :address_1, class: 'form-control', required: true %>
+        </div>
+      </div>
+
+      <div class='form-group'>
+        <%= f.label :To, class: 'col-lg-2' %>
+        <div class='col-lg-10'>
+        <%= f.text_field :address_2, class: 'form-control', required: true %>
+        </div>
+      </div>
+
+      <div class='form-group'>
+        <%= f.label :When, class: 'col-lg-2' %>
+        <div class='col-lg-10'>
+        <%= f.datetime_select :time, class: 'form-control', required: true %>
+        </div>
+      </div>
+
+      <div class='form-group'>
+        <%= f.label :ZIP_Code, class: 'col-lg-2' %>
+        <div class='col-lg-10'>
+        <%= f.text_field :zipcode, class: 'form-control', required: true %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <fieldset>
+  <% end %>
+</div>

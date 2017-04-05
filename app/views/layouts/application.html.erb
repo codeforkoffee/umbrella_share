@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= include_gon(:init => true) %>
+    <div id="titles">
+      <title>Umbrella Share</title>
+    </div>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' />
+    <!-- https://bootswatch.com/simplex/ -->
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/simplex/bootstrap.min.css' />
+    <style href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></style>
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+
+    <div class='container'>
+      <div class= 'row text center'>
+        <h2 class="col-xs-12 notice"><%= notice %></h2>
+        <h2 class="col-xs-12 alert"><%= alert %></h2>
+
+    <%= yield %>
+  </body>
+</html>
