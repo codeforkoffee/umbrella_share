@@ -5,86 +5,78 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(
+cat = User.create(
   {
     nickname: 'caterpillar',
     email: 'jin@gmail.com',
     password: '123123'}
   )
 
-User.create(
+dog = User.create(
   {
     nickname: 'mary',
     email: 'mary@gmail.com',
     password: '123123'}
   )
 
-Umbrella.create(
+cat.umbrellas.create(
   {
-    user_id: User.first.id,
     time: Date.current + 5.hours,
     address_1: '431 S Dearborn St',
     address_2: '444 N Wabash St.',
     zipcode: 60605
   })
 
-Umbrella.create(
+cat.umbrellas.create(
   {
-    user_id: User.first.id,
     time: Date.current + 2.hours,
     address_1: 'Star of Siam',
     address_2: 'Eataly',
     zipcode: 60611
   })
 
-Umbrella.create(
+cat.umbrellas.create(
   {
-    user_id: User.first.id,
     time: Date.current + 5.hours,
     address_1: 'Union Station',
     address_2: 'Trump International Hotel',
     zipcode: 60611
   })
 
-Umbrella.create(
+cat.umbrellas.create(
   {
-    user_id: User.first.id,
     time: Date.current + 1.hours,
     address_1: 'Freehand Chicago',
     address_2: 'LA Fitness, East Randolph Street, Chicago, IL',
     zipcode: 60601
   })
 
-Umbrella.create(
+dog.umbrellas.create(
   {
-    user_id: User.last.id,
     time: Date.current + 3.hours,
     address_1: 'Cloud Gate',
     address_2: 'Barnes & Noble, 1 E Jackson Blvd, Chicago, IL',
     zipcode: 60604
   })
 
-Umbrella.create(
+cat.umbrellas.create(
   {
-    user_id: User.first.id,
     time: Date.current + 3.hours,
     address_1: 'SideDoor, 100 E Ontario St, Chicago, IL',
     address_2: 'Cloud Gate',
     zipcode: 60611
   })
 
-Umbrella.create(
+cat.umbrellas.create(
   {
-    user_id: User.first.id,
     time: Date.current + 1.hours,
     address_1: 'Jackson red line',
     address_2: 'Rainforest Cafe, 605 N Clark St, Chicago, IL 60610',
     zipcode: 60654
   })
 
-Umbrella.create(
+cat.umbrellas.create(
   {
-    user_id: User.first.id,
     time: Date.current + 1.hours,
     address_1: 'Two Zero Three, Chicago',
     address_2: 'Revival Food Hall, Chicago',
