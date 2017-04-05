@@ -21,7 +21,7 @@ User.create(
 
 Umbrella.create(
   {
-    user: User.first,
+    user_id: User.first.id,
     time: Date.current + 5.hours,
     address_1: '431 S Dearborn St',
     address_2: '444 N Wabash St.',
@@ -30,7 +30,7 @@ Umbrella.create(
 
 Umbrella.create(
   {
-    user: User.first,
+    user_id: User.first.id,
     time: Date.current + 2.hours,
     address_1: 'Star of Siam',
     address_2: 'Eataly',
@@ -39,7 +39,7 @@ Umbrella.create(
 
 Umbrella.create(
   {
-    user: User.first,
+    user_id: User.first.id,
     time: Date.current + 5.hours,
     address_1: 'Union Station',
     address_2: 'Trump International Hotel',
@@ -48,7 +48,7 @@ Umbrella.create(
 
 Umbrella.create(
   {
-    user: User.first,
+    user_id: User.first.id,
     time: Date.current + 1.hours,
     address_1: 'Freehand Chicago',
     address_2: 'LA Fitness, East Randolph Street, Chicago, IL',
@@ -57,7 +57,7 @@ Umbrella.create(
 
 Umbrella.create(
   {
-    user: User.last,
+    user_id: User.last.id,
     time: Date.current + 3.hours,
     address_1: 'Cloud Gate',
     address_2: 'Barnes & Noble, 1 E Jackson Blvd, Chicago, IL',
@@ -66,7 +66,7 @@ Umbrella.create(
 
 Umbrella.create(
   {
-    user: User.first,
+    user_id: User.first.id,
     time: Date.current + 3.hours,
     address_1: 'SideDoor, 100 E Ontario St, Chicago, IL',
     address_2: 'Cloud Gate',
@@ -75,7 +75,7 @@ Umbrella.create(
 
 Umbrella.create(
   {
-    user: User.first,
+    user_id: User.first.id,
     time: Date.current + 1.hours,
     address_1: 'Jackson red line',
     address_2: 'Rainforest Cafe, 605 N Clark St, Chicago, IL 60610',
@@ -84,7 +84,7 @@ Umbrella.create(
 
 Umbrella.create(
   {
-    user: User.first,
+    user_id: User.first.id,
     time: Date.current + 1.hours,
     address_1: 'Two Zero Three, Chicago',
     address_2: 'Revival Food Hall, Chicago',
