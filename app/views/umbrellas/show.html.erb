@@ -9,26 +9,28 @@
     <p><%= @umbrella.address_1 %> <%= @umbrella.zipcode %></p>
     <h4> To </h4>
     <p><%= @umbrella.address_2 %></p>
-
-    <div id="messages" data-umbrella-id="<%= @umbrella.id %>">
+    <h4> Ask if this " <%= image_tag('umbrella.png', width: '30px') %> " is available! </h4>
+    <div class='well' id="messages" data-umbrella-id="<%= @umbrella.id %>">
       <%= render @umbrella.messages %>
     </div>
-    <%= form_for @message, url: '#' do |f| %>
-      <div class="form-group">
-        <%= f.label :message %>
-        <%= f.text_field :body, class: 'form-control' %>
-      </div>
-      <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
-
-    <% end %>
+      <%= form_for @message, url: '#' do |f| %>
+        <div class="col-lg-10 form-group">
+          <%= f.text_field :body, class: 'form-control' %>
+        </div>
+          <%= f.submit "Send", class: 'btn btn-primary' %>
+        <br>
+      <% end %>
   </div>
-  <br>
+
   <div class='col-lg-6'>
-  <%= render 'google_map', umbrella: @umbrella %>
+    <%= render 'google_map', umbrella: @umbrella %>
   </div>
 </div>
 
-<div class='well'>
-  <%= link_to 'Edit', edit_umbrella_path(@umbrella), class: 'btn btn-primary' %> |
-  <%= link_to 'Back', umbrellas_path %>
+<div>
+  <%= link_to 'Back', umbrellas_path, class: 'btn btn-primary' %>
+  <% if @umbrella.user_id == current_user.id %> |
+  <%= link_to 'Edit', edit_umbrella_path(@umbrella) %> |
+  <%= link_to 'Delete', @umbrella, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
 </div>

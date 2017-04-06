@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
+
   get 'umbrellas/my_umbrella', to: "umbrellas#my_umbrella"
   resources :umbrellas
   mount ActionCable.server => '/cable'

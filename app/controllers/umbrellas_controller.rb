@@ -5,7 +5,6 @@ class UmbrellasController < ApplicationController
   def index
     @umbrellas = Umbrella.where('time>= ?', Date.today).order(:time).limit(20)
     gon.departures = Umbrella.all.pluck(:address_1, :latitude, :longitude)
-
   end
 
   def my_umbrella

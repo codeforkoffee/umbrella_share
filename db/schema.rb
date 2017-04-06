@@ -38,13 +38,6 @@ ActiveRecord::Schema.define(version: 20170405202430) do
     t.index ["user_id"], name: "index_umbrellas_on_user_id", using: :btree
   end
 
-  create_table "umbrellas_users", id: false, force: :cascade do |t|
-    t.integer "user_id",     null: false
-    t.integer "umbrella_id", null: false
-    t.index ["umbrella_id"], name: "index_umbrellas_users_on_umbrella_id", using: :btree
-    t.index ["user_id"], name: "index_umbrellas_users_on_user_id", using: :btree
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "nickname",               default: "", null: false
     t.string   "email",                  default: "", null: false

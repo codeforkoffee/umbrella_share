@@ -6,25 +6,26 @@
   <thead>
     <tr>
       <th>Time</th>
-      <th>Address</th>
-      <th>Action</th>
+      <th>From</th>
+      <th>To</th>
+      <th></th>
+      <th>Actions<th>
     </tr>
   </thead>
 
   <tbody>
-    <% @umbrellas.each do |umbrella| %>
+    <% @my_umbrellas.each do |umbrella| %>
       <tr>
-        <td><%= umbrella.time %></td>
-        <td><%= link_to umbrella.address_1, umbrella %></td>
+        <td><%= umbrella.time.strftime("%B %d, %H:%M")  %></td>
+        <td><%= umbrella.address_1 %></td>
         <td><%= umbrella.address_2 %></td>
-        <td><%= link_to 'Edit', edit_umbrella_path(umbrella) %> |
-            <%= link_to 'Destroy', umbrella, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
+        <td><%= link_to 'View', umbrella_path(umbrella) %></td>
+        <td><%= link_to 'Edit', edit_umbrella_path(umbrella) if umbrella.user_id == current_user.id %></td>
+        <td><%= link_to 'Delete', umbrella, method: :delete, data: { confirm: 'Are you sure?' } if umbrella.user_id == current_user.id %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
 <%= link_to 'New Umbrella', new_umbrella_path, class: 'btn btn-primary' %>

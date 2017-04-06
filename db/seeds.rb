@@ -18,6 +18,8 @@ dog = User.create(
     email: 'mary@gmail.com',
     password: '123123'}
   )
+dog.save
+cat.save
 
 cat.umbrellas.create(
   {
@@ -70,7 +72,7 @@ cat.umbrellas.create(
 cat.umbrellas.create(
   {
     time: Date.current + 1.hours,
-    address_1: 'Jackson red line',
+    address_1: 'Jackson, chicago',
     address_2: 'Rainforest Cafe, 605 N Clark St, Chicago, IL 60610',
     zipcode: 60654
   })
