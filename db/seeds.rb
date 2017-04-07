@@ -5,23 +5,32 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-cat = User.create(
+user = User.create(
   {
-    nickname: 'caterpillar',
+    nickname: 'Caterpillar',
     email: 'jin@gmail.com',
     password: '123123'}
   )
 
-dog = User.create(
+user2 = User.create(
   {
-    nickname: 'mary',
+    nickname: 'Mary',
     email: 'mary@gmail.com',
     password: '123123'}
   )
-dog.save
-cat.save
 
-cat.owned_umbrellas.create(
+user3 = User.create(
+  {
+    nickname: 'Jon',
+    email: 'jon@gmail.com',
+    password: '123123'}
+  )
+
+user.save!
+user2.save!
+user3.save!
+
+user3.owned_umbrellas.create(
   {
     time: Date.current + 5.hours,
     address_1: '431 S Dearborn St',
@@ -29,7 +38,7 @@ cat.owned_umbrellas.create(
     zipcode: 60605
   })
 
-cat.owned_umbrellas.create(
+user3.owned_umbrellas.create(
   {
     time: Date.current + 2.hours,
     address_1: 'Star of Siam',
@@ -37,7 +46,7 @@ cat.owned_umbrellas.create(
     zipcode: 60611
   })
 
-cat.owned_umbrellas.create(
+user3.owned_umbrellas.create(
   {
     time: Date.current + 5.hours,
     address_1: 'Union Station',
@@ -45,7 +54,7 @@ cat.owned_umbrellas.create(
     zipcode: 60611
   })
 
-cat.owned_umbrellas.create(
+user3.owned_umbrellas.create(
   {
     time: Date.current + 1.hours,
     address_1: 'Freehand Chicago',
@@ -53,34 +62,34 @@ cat.owned_umbrellas.create(
     zipcode: 60601
   })
 
-dog.owned_umbrellas.create(
+user.owned_umbrellas.create(
   {
     time: Date.current + 3.hours,
-    address_1: 'Cloud Gate',
+    address_1: 'Cloud Gate, chicago',
     address_2: 'Barnes & Noble, 1 E Jackson Blvd, Chicago, IL',
     zipcode: 60604
   })
 
-cat.owned_umbrellas.create(
+user2.owned_umbrellas.create(
   {
-    time: Date.current + 3.hours,
-    address_1: 'SideDoor, 100 E Ontario St, Chicago, IL',
-    address_2: 'Cloud Gate',
-    zipcode: 60611
-  })
-
-cat.owned_umbrellas.create(
-  {
-    time: Date.current + 1.hours,
+    time: Date.current + 15.hours,
     address_1: 'Jackson, chicago',
     address_2: 'Rainforest Cafe, 605 N Clark St, Chicago, IL 60610',
     zipcode: 60654
   })
 
-cat.owned_umbrellas.create(
+user2.owned_umbrellas.create(
   {
     time: Date.current + 1.hours,
     address_1: 'Two Zero Three, Chicago',
     address_2: 'Revival Food Hall, Chicago',
     zipcode: 60603
+  })
+
+user.owned_umbrellas.create(
+  {
+    time: Date.current + 10.hours,
+    address_1: 'Tribune Tower, chicago',
+    address_2: 'Barnes & Noble, 1 E Jackson Blvd, Chicago, IL',
+    zipcode: 60604
   })

@@ -1,23 +1,23 @@
 <div class='page-header'>
   <h2><%= @umbrella.time.strftime("%B %d, %Y") %> <%= image_tag('clock.png', width: '60px') %>
   <%= @umbrella.time.strftime("%H:%M") %></h2>
-  <h4>Currently, <%= @umbrella.owner.nickname %> is
+  <h4 id="umbrella_info">Currently, <%= @umbrella.owner.nickname %> is
   sharing with <%= @umbrella.guest&.nickname || 'no one' %>. </h4>
 
 </div>
 
 <div class='row'>
   <div class='col-lg-6'>
-    <h4> From </h4>
+    <h4 > From </h4>
     <p><%= @umbrella.address_1 %> <%= @umbrella.zipcode %></p>
     <h4> To </h4>
-    <p><%= @umbrella.address_2 %></p>
+    <p><%= @umbrella.address_2 %></p><br>
     <h4> Ask if this  <%= image_tag('umbrella.png', width: '30px') %>  is available! </h4>
     <div class='well' id="messages" data-umbrella-id="<%= @umbrella.id %>">
       <%= render @umbrella.messages %>
     </div>
       <%= form_for @message, url: '#' do |f| %>
-        <div class="col-lg-10 form-group" >
+        <div class="col-sm-6 form-group" >
           <%= f.text_field :body, class: 'form-control' %>
         </div>
           <%= f.submit "Send", class: 'btn btn-primary' %>
@@ -31,10 +31,11 @@
 </div>
 
 <div>
+  <%= link_to 'Join', umbrella_join_path(@umbrella), class: 'btn btn-primary', method: :post if !current_user.shared_umbrellas.include?(@umbrella) %>
+  <%= link_to 'Cancel', umbrella_cancel_path(@umbrella), class: 'btn btn-primary', method: :delete if current_user.shared_umbrellas.include?(@umbrella) %>
   <%= link_to 'Back', umbrellas_path, class: 'btn btn-primary' %>
   <% if @umbrella.owner_id == current_user.id %> |
-  <%= link_to 'Edit', edit_umbrella_path(@umbrella) %> |
-  <%= link_to 'Delete', @umbrella, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <%= link_to 'Cancel', umbrella_cancel_path(@umbrella), method: :delete if current_user.shared_umbrellas.include?(@umbrella)%>
+    <%= link_to 'Edit', edit_umbrella_path(@umbrella) %> |
+    <%= link_to 'Delete', @umbrella, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 </div>

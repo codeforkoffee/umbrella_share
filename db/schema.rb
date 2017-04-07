@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20170406192843) do
 
   add_foreign_key "messages", "umbrellas"
   add_foreign_key "messages", "users"
+  add_foreign_key "umbrellas", "users", column: "guest_id"
   add_foreign_key "umbrellas", "users", column: "owner_id"
   add_foreign_key "users_umbrellas", "umbrellas"
   add_foreign_key "users_umbrellas", "users"
