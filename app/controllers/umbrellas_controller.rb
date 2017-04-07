@@ -5,6 +5,7 @@ class UmbrellasController < ApplicationController
   def index
     @umbrellas = Umbrella.where('time>= ?', Date.today).order(:time).limit(20)
     gon.departures = Umbrella.all.pluck(:address_1, :latitude, :longitude)
+    @UsersUmbrella = UsersUmbrella.where(user_id:current_user.id)
   end
 
   def my_umbrella
@@ -16,21 +17,34 @@ class UmbrellasController < ApplicationController
   end
 
   def create
-    @umbrella = Umbrella.new(umbrella_params)
-
-    if @umbrella.save
+    # @umbrella = Umbrella.new(umbrella_params)
+   # if @umbrella.save
+   #   UsersUmbrella.create(user_id: current_user.id, umbrella_id: @umbrella.id)
+   #   redirect_to @umbrella
+   # else
+   #   render 'new'
+   # end
+    @umbrella = current_user.umbrellas.create(umbrella_params)
+    if @umbrella.persisted?
       redirect_to @umbrella
     else
       render 'new'
     end
   end
 
+  def join
+    @umbrella = Umbrella.find(params[:umbrella_id])
+    # UsersUmbrella.create(user_id: current_user.id, umbrella_id: @umbrella.id)
+    current_user.umbrellas << @umbrella
+    # current_user.save!
+    redirect_to umbrellas_path
+
+  end
+
   def show
-    # @umbrella = Umbrella.find(params[:id])
     @user = User.find_by(id: @umbrella.user_id)
     @umbrella = Umbrella.includes(:messages).find_by(id: params[:id])
     @message = Message.new
-    # binding.pry
   end
 
   def edit

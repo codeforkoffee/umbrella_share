@@ -9,7 +9,7 @@
     <p><%= @umbrella.address_1 %> <%= @umbrella.zipcode %></p>
     <h4> To </h4>
     <p><%= @umbrella.address_2 %></p>
-    <h4> Ask if this " <%= image_tag('umbrella.png', width: '30px') %> " is available! </h4>
+    <h4> Ask if this  <%= image_tag('umbrella.png', width: '30px') %>  is available! </h4>
     <div class='well' id="messages" data-umbrella-id="<%= @umbrella.id %>">
       <%= render @umbrella.messages %>
     </div>

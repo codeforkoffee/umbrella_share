@@ -21,6 +21,7 @@
 
     <ul class='nav navbar-nav navbar-right'>
       <% if current_user %>
+        <li><%= link_to 'Home', umbrellas_path %></li>
         <li><%= link_to 'My Profile', edit_user_registration_path %></li>
         <li><%= link_to 'Umbrellas', umbrellas_my_umbrella_path %></li>
         <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
