@@ -14,19 +14,26 @@
   </thead>
 
   <tbody>
+
     <% @umbrellas.each do |umbrella| %>
       <tr>
         <td><%= umbrella.time.strftime("%B %d, %H:%M")  %></td>
         <td><%= umbrella.address_1 %></td>
         <td><%= umbrella.address_2 %></td>
         <td><%= link_to 'View', umbrella_path(umbrella) %></td>
-        <% if umbrella.user_id == current_user.id %>
+        <% if umbrella.owner_id == current_user.id %>
           <td><%= link_to 'Edit', edit_umbrella_path(umbrella) %></td>
           <td><%= link_to 'Delete', umbrella, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% elsif umbrella.user_id != current_user.id %>
+        <% elsif umbrella.guest != current_user %>
+          <td><%= link_to 'Join', umbrella_join_path(umbrella), method: :post if !current_user.shared_umbrellas.include?(umbrella) %>
+          </td>
           <td></td>
-          <td><%= link_to 'Join', umbrella_join_path(umbrella), method: :post if !current_user.umbrellas.include?(umbrella) %>
-          <%= link_to 'Cancel', umbrella_cancel_path(umbrella), method: :delete if current_user.umbrellas.include?(umbrella)%></td>
+
+
+        <% elsif umbrella.guest == current_user %>
+          <td></td>
+          <td>
+          <%= link_to 'Cancel', umbrella_cancel_path(umbrella), method: :delete if current_user.shared_umbrellas.include?(umbrella)%></td>
         <% end %>
       </tr>
     <% end %>

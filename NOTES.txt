@@ -1,0 +1,3 @@
+* not connecting to redis (is redis even running on heroku?)
+* asset hosting / asset compliation / path to assets somehow hosed
+* 

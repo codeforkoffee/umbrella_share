@@ -1,7 +1,8 @@
 class Umbrella < ApplicationRecord
   has_many :messages, dependent: :destroy
-  has_many :users_umbrella
-  has_many :users, dependent: :destroy, through: :users_umbrella
+  belongs_to :owner, class_name: :User, inverse_of: :owned_umbrellas
+  belongs_to :guest, class_name: :User, optional: true, inverse_of: :shared_umbrellas
+
   geocoded_by :address_1
   after_validation :geocode
 end

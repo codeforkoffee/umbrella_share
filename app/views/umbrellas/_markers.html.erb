@@ -41,6 +41,7 @@
       event.preventDefault();
       // Within the form, find the input with the name q, and determine what the user entered in that input
       var address = $(this).find('input[name=q]').val();
+
       // Initialize geocoder
       var geocoder = new google.maps.Geocoder();
       // Geocode the input from the user

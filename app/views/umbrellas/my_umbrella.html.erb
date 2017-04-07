@@ -20,8 +20,10 @@
         <td><%= umbrella.address_1 %></td>
         <td><%= umbrella.address_2 %></td>
         <td><%= link_to 'View', umbrella_path(umbrella) %></td>
-        <td><%= link_to 'Edit', edit_umbrella_path(umbrella) if umbrella.user_id == current_user.id %></td>
-        <td><%= link_to 'Delete', umbrella, method: :delete, data: { confirm: 'Are you sure?' } if umbrella.user_id == current_user.id %></td>
+        <td><%= link_to 'Edit', edit_umbrella_path(umbrella) if umbrella.owner_id == current_user.id %></td>
+        <td><%= link_to 'Delete', umbrella, method: :delete, data: { confirm: 'Are you sure?' } if umbrella.owner_id == current_user.id %></td>
+        <td><%= link_to 'Cancel', umbrella_cancel_path(umbrella), method: :delete if current_user.shared_umbrellas.include?(umbrella)%></td>
+
       </tr>
     <% end %>
   </tbody>

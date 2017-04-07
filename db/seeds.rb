@@ -21,7 +21,7 @@ dog = User.create(
 dog.save
 cat.save
 
-cat.umbrellas.create(
+cat.owned_umbrellas.create(
   {
     time: Date.current + 5.hours,
     address_1: '431 S Dearborn St',
@@ -29,7 +29,7 @@ cat.umbrellas.create(
     zipcode: 60605
   })
 
-cat.umbrellas.create(
+cat.owned_umbrellas.create(
   {
     time: Date.current + 2.hours,
     address_1: 'Star of Siam',
@@ -37,7 +37,7 @@ cat.umbrellas.create(
     zipcode: 60611
   })
 
-cat.umbrellas.create(
+cat.owned_umbrellas.create(
   {
     time: Date.current + 5.hours,
     address_1: 'Union Station',
@@ -45,7 +45,7 @@ cat.umbrellas.create(
     zipcode: 60611
   })
 
-cat.umbrellas.create(
+cat.owned_umbrellas.create(
   {
     time: Date.current + 1.hours,
     address_1: 'Freehand Chicago',
@@ -53,7 +53,7 @@ cat.umbrellas.create(
     zipcode: 60601
   })
 
-dog.umbrellas.create(
+dog.owned_umbrellas.create(
   {
     time: Date.current + 3.hours,
     address_1: 'Cloud Gate',
@@ -61,7 +61,7 @@ dog.umbrellas.create(
     zipcode: 60604
   })
 
-cat.umbrellas.create(
+cat.owned_umbrellas.create(
   {
     time: Date.current + 3.hours,
     address_1: 'SideDoor, 100 E Ontario St, Chicago, IL',
@@ -69,7 +69,7 @@ cat.umbrellas.create(
     zipcode: 60611
   })
 
-cat.umbrellas.create(
+cat.owned_umbrellas.create(
   {
     time: Date.current + 1.hours,
     address_1: 'Jackson, chicago',
@@ -77,7 +77,7 @@ cat.umbrellas.create(
     zipcode: 60654
   })
 
-cat.umbrellas.create(
+cat.owned_umbrellas.create(
   {
     time: Date.current + 1.hours,
     address_1: 'Two Zero Three, Chicago',

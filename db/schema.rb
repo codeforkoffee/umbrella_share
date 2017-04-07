@@ -26,7 +26,8 @@ ActiveRecord::Schema.define(version: 20170406192843) do
   end
 
   create_table "umbrellas", force: :cascade do |t|
-    t.integer  "user_id",    null: false
+    t.integer  "owner_id",   null: false
+    t.integer  "guest_id"
     t.datetime "time",       null: false
     t.string   "address_1",  null: false
     t.string   "address_2",  null: false
@@ -35,23 +36,24 @@ ActiveRecord::Schema.define(version: 20170406192843) do
     t.datetime "updated_at", null: false
     t.float    "latitude"
     t.float    "longitude"
-    t.index ["user_id"], name: "index_umbrellas_on_user_id", using: :btree
+    t.index ["guest_id"], name: "index_umbrellas_on_guest_id", using: :btree
+    t.index ["owner_id"], name: "index_umbrellas_on_owner_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "nickname",               default: "", null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "nickname",                           null: false
+    t.string   "email",                              null: false
+    t.string   "encrypted_password",                 null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -67,7 +69,7 @@ ActiveRecord::Schema.define(version: 20170406192843) do
 
   add_foreign_key "messages", "umbrellas"
   add_foreign_key "messages", "users"
-  add_foreign_key "umbrellas", "users"
+  add_foreign_key "umbrellas", "users", column: "owner_id"
   add_foreign_key "users_umbrellas", "umbrellas"
   add_foreign_key "users_umbrellas", "users"
 end
