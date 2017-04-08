@@ -24,8 +24,9 @@ class UmbrellasController < ApplicationController
    # else
    #   render 'new'
    # end
-    @umbrella = current_user.umbrellas.create(umbrella_params)
-    if @umbrella.persisted?
+    @umbrella = Umbrella.new
+    @umbrella.update(umbrella_params)
+    if @umbrella.save
       redirect_to @umbrella
     else
       render 'new'
