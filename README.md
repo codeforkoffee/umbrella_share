@@ -1,24 +1,21 @@
-# README
+# Umbrella-share
+>This is a Personal Rails capstone project (CRUD)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I don't like carrying umbrella or I never remember to carry one.
+When we get stuck in the rain, instead of poping into a convenience store to get one-time use umbrella, we could share an umbrella. It saves time, money and environment.
 
-Things you may want to cover:
+User who signs in (devise) can check locations of other usrs who have an umbrella nearby and routes (from where to where) via Google map.
+The person can talk in a chatroom for details.
 
-* Ruby version
+* Ruby version 2.4.0
+* Rails version 5.0.2
 
-* System dependencies
+### features used
+1. Devise
+2. Action cable
+3. Google Map API
+4. Rails Framework
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### features will be added
+1. Unit testing
+2. Mailers (notifications)
