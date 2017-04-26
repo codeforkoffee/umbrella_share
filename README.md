@@ -8,15 +8,19 @@ When we get stuck in the rain, instead of poping into a convenience store to get
 User who signs in (devise) can check locations of other usrs who have an umbrella nearby and routes (from where to where) via Google map.
 The person can talk in a chatroom for details.
 
+### To run locally,
+$ bundle install
+$ rails s
+
 * Ruby version 2.4.0
 * Rails version 5.0.2
 
-### features used
+### Features used
 1. Devise
 2. Action cable
 3. Google Map API
 4. Rails Framework
 
-### features will be added
+### Features will be added
 1. Unit testing
 2. Mailers (notifications)
