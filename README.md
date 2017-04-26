@@ -9,7 +9,7 @@ User who signs in (devise) can check locations of other usrs who have an umbrell
 The person can talk in a chatroom for details.
 
 ### To run locally,
-$ bundle install
+$ bundle install </br>
 $ rails s
 
 * Ruby version 2.4.0
